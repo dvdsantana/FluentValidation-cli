@@ -103,7 +103,7 @@ Create or edit JSON files in the `rules/` directory. Each JSON file represents v
 Run the generator to create validation code for both backend and frontend:
 
 ```bash
-dotnet run --project src/FluentValidationCLI.Generator/FluentValidationCLI.Generator.csproj \
+dotnet run --project src/FluentValidationCLI.Generator/FluentValidationCLI.Generator.csproj
 ```
 
 **Output:**
@@ -188,21 +188,20 @@ function App() {
 
 ```
 FluentValidationCLI/
-├── rules/                          # JSON validation rule definitions
+├── rules/                             # JSON validation rule definitions
 │   └── User.json
 ├── src/
-│   ├── FluentValidationCLI.Generator/       # Code generator console app
-│   │   ├── Models/                # JSON deserialization models
-│   │   ├── Generators/            # C# and TypeScript generators
-│   │   └── Program.cs             # CLI entry point
-│   ├── FluentValidationCLI.Backend/         # Sample ASP.NET Core API
-│   │   ├── Models/                # Entity models
-│   │   ├── Validators/            # Generated C# validators
+│   ├── FluentValidationCLI.Generator/ # Code generator console app
+│   │   ├── Models/                    # JSON deserialization models
+│   │   ├── Generators/                # C# and TypeScript generators
+│   │   └── Program.cs                 # CLI entry point
+│   ├── FluentValidationCLI.Backend/   # Sample ASP.NET Core API
+│   │   ├── Models/                    # Entity models
+│   │   ├── Validators/                # Generated C# validators
 │   │   └── Program.cs
-│   └── FluentValidationCLI.Frontend/        # Sample React TypeScript app
+│   └── FluentValidationCLI.Frontend/  # Sample React TypeScript app
 │       └── src/
-│           └── validators/        # Generated TypeScript validators
-├── docs/                          # Documentation
+│           └── validators/            # Generated TypeScript validators
 └── README.md
 ```
 
