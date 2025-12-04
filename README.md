@@ -192,6 +192,8 @@ The `samples/` folder contains fully functional examples:
 - **Backend (ASP.NET Core)**: Web API with generated validators integrated
 - **Frontend (React + TypeScript)**: Form validation using generated validators
 
+[See full samples documentation →](/samples/README.md)
+
 Run the samples:
 
 ```bash
@@ -201,7 +203,7 @@ dotnet run
 
 # Frontend
 cd samples/frontend
-npm install && npm start
+npm install && npm run dev
 ```
 
 ## 🧪 Benefits
