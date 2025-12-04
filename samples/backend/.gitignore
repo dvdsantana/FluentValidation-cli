@@ -1,0 +1,19 @@
+# ASP.NET Core Backend specific ignores
+
+# Build outputs
+bin/
+obj/
+
+# User secrets
+appsettings.Development.json
+appsettings.*.json
+!appsettings.json
+
+# Database files (if using local DB)
+*.db
+*.db-shm
+*.db-wal
+
+# Logs
+logs/
+*.log
