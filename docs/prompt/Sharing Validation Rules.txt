@@ -1,0 +1,39 @@
+﻿Project Overview: Centralized Validation Rules Engine
+Executive Summary
+This project proposes a centralized validation rules engine to eliminate redundant development efforts and ensure consistency in data validation across frontend (client-side) and backend (server-side) systems.
+________________
+
+
+1. Problem Statement
+Information systems require data validation at multiple stages. Two critical phases are:
+* Client-Side Validation: During user data entry (frontend).
+* Server-Side Validation: Upon data reception by the persistence layer (backend).
+Server-side validation typically involves two categories:
+1. Generic/Structural Rules: Mirroring client-side checks (e.g., field required, correct date format).
+2. Business Rules: Requiring data processing or external service calls (e.g., checking for database duplicates or verifying against an external registry).
+Core Challenge: This project addresses the duplication of generic validation rules. Currently, identical logic must be implemented twice—once in frontend technologies (e.g., JavaScript) and once in backend technologies (e.g., C#). This leads to:
+* Increased Development & Maintenance Effort
+* Risk of Inconsistency between Client and Server Validation Logic.
+2. Current State Analysis
+* Backend: Validation is typically implemented using frameworks like FluentValidation (for .NET), defining rule sets per entity.
+* Frontend: Validation is handled separately within web forms using JavaScript.
+* Gap: These are two independent implementations of the same business rules, managed in different codebases and languages.
+3. Proposed Solution: A Centralized Validation Definition System
+We propose a technology-agnostic, centralized system for defining validation rules. This system will serve as a "single source of truth" for generic validation logic.
+Key Design Principles:
+* Separation of Concerns: The rule definition system is independent of both frontend and backend applications.
+* Human-Readable Configuration: Rules are defined in a clear, structured JSON file per entity (e.g., User.json, Address.json, Product.json). This format is accessible to both technical and non-technical stakeholders for review.
+* Automated Code Generation: The centralized system will automatically generate the specific validation code required by each layer:
+   * For the Backend, it will produce C# classes that use the FluentValidation library.
+   * For the Frontend: It will produce TypeScript classes compatible with a chosen validation library (e.g., fluentvalidation-ts).
+4. Benefits & Expected Outcomes
+* Efficiency: Drastically reduces development and testing time by eliminating duplicate coding.
+* Consistency & Reliability: Guarantees that frontend and backend validations are always aligned, improving data integrity.
+* Maintainability: Changes to validation logic are made in one place (the JSON definition) and propagated automatically to both layers.
+* Clarity: Provides transparent, declarative documentation of all validation rules in a standard format.
+5. High-Level Implementation Scope
+* Phase 1: Design the schema for the entity-specific JSON rule definitions.
+* Phase 2: Develop the generator tool/engine that consumes JSON and outputs C# FluentValidation classes.
+* Phase 3: Develop the generator tool/engine that consumes JSON and outputs TypeScript validation classes.
+* Phase 4: Integrate the generated code into sample backend (C#/.NET) and frontend (TypeScript) applications.
+* Phase 5: Document the process for defining new rules and integrating the generator into build pipelines.
