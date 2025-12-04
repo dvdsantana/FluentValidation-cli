@@ -1,6 +1,7 @@
 # Centralized Validation Rules Engine
 
 A powerful code generation system that eliminates duplicate validation logic across frontend and backend applications by defining validation rules once in JSON and generating both C# FluentValidation and TypeScript fluentvalidation-ts validators automatically.
+> Want to know how I created this project in just a few hours? Read [here](https://github.com/dvdsantana/FluentValidation-cli/discussions/1).
 
 ## 🎯 Overview
 
