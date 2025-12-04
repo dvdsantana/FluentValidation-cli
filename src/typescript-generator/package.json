@@ -1,0 +1,33 @@
+{
+  "name": "fluentvalidation-ts-generator",
+  "version": "1.0.0",
+  "description": "CLI tool to generate TypeScript fluentvalidation-ts classes from JSON rule definitions",
+  "main": "dist/index.js",
+  "bin": {
+    "fv-ts-generator": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "dev": "ts-node src/cli.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fluentvalidation-ts",
+    "validation",
+    "code-generation",
+    "typescript",
+    "cli"
+  ],
+  "author": "FluentValidation CLI Team",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "fluentvalidation-ts": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

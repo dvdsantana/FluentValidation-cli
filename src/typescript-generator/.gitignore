@@ -1,0 +1,15 @@
+# TypeScript Generator specific ignores
+
+# Build outputs
+dist/
+*.js
+*.d.ts
+*.js.map
+*.tsbuildinfo
+
+# Exclude the built CLI if running locally
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
