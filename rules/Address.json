@@ -1,0 +1,94 @@
+{
+  "entity": "Address",
+  "namespace": "SampleApp.Models",
+  "properties": [
+    {
+      "name": "Street",
+      "type": "string",
+      "rules": [
+        {
+          "validator": "NotEmpty",
+          "message": "Street address is required"
+        },
+        {
+          "validator": "Length",
+          "parameters": {
+            "min": 5,
+            "max": 200
+          },
+          "message": "Street address must be between 5 and 200 characters"
+        }
+      ]
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "rules": [
+        {
+          "validator": "NotEmpty",
+          "message": "City is required"
+        },
+        {
+          "validator": "MaxLength",
+          "parameters": {
+            "length": 100
+          },
+          "message": "City cannot exceed 100 characters"
+        }
+      ]
+    },
+    {
+      "name": "State",
+      "type": "string",
+      "rules": [
+        {
+          "validator": "NotEmpty",
+          "message": "State is required"
+        },
+        {
+          "validator": "Length",
+          "parameters": {
+            "min": 2,
+            "max": 2
+          },
+          "message": "State must be a 2-letter code"
+        }
+      ]
+    },
+    {
+      "name": "ZipCode",
+      "type": "string",
+      "rules": [
+        {
+          "validator": "NotEmpty",
+          "message": "ZIP code is required"
+        },
+        {
+          "validator": "Matches",
+          "parameters": {
+            "pattern": "^\\d{5}(-\\d{4})?$"
+          },
+          "message": "ZIP code must be in format 12345 or 12345-6789"
+        }
+      ]
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "rules": [
+        {
+          "validator": "NotEmpty",
+          "message": "Country is required"
+        },
+        {
+          "validator": "Length",
+          "parameters": {
+            "min": 2,
+            "max": 2
+          },
+          "message": "Country must be a 2-letter ISO code"
+        }
+      ]
+    }
+  ]
+}

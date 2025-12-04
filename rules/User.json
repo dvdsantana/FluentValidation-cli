@@ -1,0 +1,69 @@
+{
+  "entity": "User",
+  "namespace": "SampleApp.Models",
+  "properties": [
+    {
+      "name": "Id",
+      "type": "number",
+      "rules": [
+        {
+          "validator": "NotNull",
+          "message": "User ID is required"
+        }
+      ]
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "rules": [
+        {
+          "validator": "NotEmpty",
+          "message": "Email is required"
+        },
+        {
+          "validator": "EmailAddress",
+          "message": "Please provide a valid email address"
+        },
+        {
+          "validator": "MaxLength",
+          "parameters": {
+            "length": 255
+          },
+          "message": "Email must not exceed 255 characters"
+        }
+      ]
+    },
+    {
+      "name": "Age",
+      "type": "number",
+      "rules": [
+        {
+          "validator": "InclusiveBetween",
+          "parameters": {
+            "min": 18,
+            "max": 120
+          },
+          "message": "Age must be between 18 and 120"
+        }
+      ]
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "rules": [
+        {
+          "validator": "NotEmpty",
+          "message": "Name is required"
+        },
+        {
+          "validator": "Length",
+          "parameters": {
+            "min": 2,
+            "max": 100
+          },
+          "message": "Name must be between 2 and 100 characters"
+        }
+      ]
+    }
+  ]
+}

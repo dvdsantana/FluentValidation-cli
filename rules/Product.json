@@ -1,0 +1,83 @@
+{
+  "entity": "Product",
+  "namespace": "SampleApp.Models",
+  "properties": [
+    {
+      "name": "Id",
+      "type": "number",
+      "rules": [
+        {
+          "validator": "NotNull",
+          "message": "Product ID is required"
+        }
+      ]
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "rules": [
+        {
+          "validator": "NotEmpty",
+          "message": "Product name is required"
+        },
+        {
+          "validator": "MaxLength",
+          "parameters": {
+            "length": 200
+          },
+          "message": "Product name cannot exceed 200 characters"
+        }
+      ]
+    },
+    {
+      "name": "Price",
+      "type": "number",
+      "rules": [
+        {
+          "validator": "GreaterThan",
+          "parameters": {
+            "value": 0
+          },
+          "message": "Price must be greater than 0"
+        },
+        {
+          "validator": "LessThanOrEqualTo",
+          "parameters": {
+            "value": 100000
+          },
+          "message": "Price cannot exceed 100,000"
+        }
+      ]
+    },
+    {
+      "name": "Sku",
+      "type": "string",
+      "rules": [
+        {
+          "validator": "NotEmpty",
+          "message": "SKU is required"
+        },
+        {
+          "validator": "Matches",
+          "parameters": {
+            "pattern": "^[A-Z]{3}-\\d{4}$"
+          },
+          "message": "SKU must follow format: XXX-9999"
+        }
+      ]
+    },
+    {
+      "name": "Description",
+      "type": "string",
+      "rules": [
+        {
+          "validator": "MaxLength",
+          "parameters": {
+            "length": 1000
+          },
+          "message": "Description cannot exceed 1000 characters"
+        }
+      ]
+    }
+  ]
+}

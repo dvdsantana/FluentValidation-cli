@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Validation Rule Definition Schema",
+  "description": "Schema for defining entity validation rules that can be used to generate both C# FluentValidation and TypeScript fluentvalidation-ts validators",
+  "type": "object",
+  "required": ["entity", "namespace", "properties"],
+  "properties": {
+    "entity": {
+      "type": "string",
+      "description": "Name of the entity being validated (e.g., 'User', 'Product')"
+    },
+    "namespace": {
+      "type": "string",
+      "description": "Namespace for C# classes (e.g., 'MyApp.Models') or module path for TypeScript"
+    },
+    "properties": {
+      "type": "array",
+      "description": "Array of property validation definitions",
+      "items": {
+        "$ref": "#/definitions/propertyValidation"
+      }
+    }
+  },
+  "definitions": {
+    "propertyValidation": {
+      "type": "object",
+      "required": ["name", "type", "rules"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Property name (e.g., 'Email', 'Age')"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["string", "number", "boolean", "date"],
+          "description": "Property data type"
+        },
+        "rules": {
+          "type": "array",
+          "description": "Array of validation rules to apply to this property",
+          "items": {
+            "$ref": "#/definitions/validationRule"
+          }
+        }
+      }
+    },
+    "validationRule": {
+      "type": "object",
+      "required": ["validator"],
+      "properties": {
+        "validator": {
+          "type": "string",
+          "enum": [
+            "NotNull",
+            "NotEmpty",
+            "Empty",
+            "Null",
+            "Equal",
+            "NotEqual",
+            "Length",
+            "MinLength",
+            "MaxLength",
+            "EmailAddress",
+            "Matches",
+            "CreditCard",
+            "LessThan",
+            "LessThanOrEqualTo",
+            "GreaterThan",
+            "GreaterThanOrEqualTo",
+            "InclusiveBetween",
+            "ExclusiveBetween",
+            "IsInEnum",
+            "Must"
+          ],
+          "description": "Name of the validator to apply"
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Parameters for the validator (e.g., { 'min': 1, 'max': 100 })",
+          "properties": {
+            "value": {
+              "description": "Single value parameter"
+            },
+            "min": {
+              "type": "number",
+              "description": "Minimum value for range validators"
+            },
+            "max": {
+              "type": "number",
+              "description": "Maximum value for range validators"
+            },
+            "length": {
+              "type": "number",
+              "description": "Length parameter for string validators"
+            },
+            "pattern": {
+              "type": "string",
+              "description": "Regular expression pattern"
+            },
+            "comparer": {
+              "type": "string",
+              "description": "Comparison type (e.g., 'OrdinalIgnoreCase')"
+            }
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "Custom error message for this validation rule"
+        },
+        "when": {
+          "type": "string",
+          "description": "Conditional expression for when this rule should apply (future feature)"
+        }
+      }
+    }
+  }
+}
