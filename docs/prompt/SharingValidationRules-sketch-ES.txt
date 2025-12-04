@@ -1,0 +1,33 @@
+﻿Sharing Validation Rules
+
+
+Problem
+Los sistemas de información necesitan validar sus datos de entrada en varias fases. Dos de las más comunes son: 
+1. Durante la introducción de datos por parte del usuario (frontend) y 
+2. En la recepción de esos datos por parte del sistema de persistencia (backend).
+
+
+En esta segunda parte se suelen realizar dos tipos de validaciones:
+1. Genéricas, siguiendo las mismas reglas que en la parte más próxima al cliente
+   1. Ejemplos: que un texto no sea nulo, una fecha sea correcta) y
+2. De negocio, en cuyo caso suele ser necesario algún tipo de procesamiento de datos o el uso de servicios de terceros para validar un dato.
+   1. Ejemplos: que no existan duplicados en base de datos o que un registro se encuentre ya dado de alta en una base de datos externa a nuestro sistema)
+
+
+En esta propuesta nos centraremos en el problema de las validaciones genéricas tanto en el frontend como en el backend. Ambos sistemas usan las mismas reglas, pero deben implementarse en ambos lados empleando tecnologías distintas, lo que supone un doble esfuerzo.
+
+
+Solución actual
+
+
+Usualmente, se emplean frameworks para definir validadores para cada entidad del sistema, como es el caso de FluentValidator (https://docs.fluentvalidation.net/en/latest/) en el backend.
+
+En cuanto al frontend, los datos introducidos por el usuario se validan mediante javascript en los propios formularios web.
+
+
+Solución propuesta
+Se plantea un tercer sistema independiente del backend y frontend. El sistema definirá un conjunto de reglas de validación para cada entidad que se traducirá en los sistemas de validación que emplee el backend y el frontend.
+Las reglas se escribirán en formato texto, legibles y entendibles por personas no técnicas. Se usará para ello un fichero JSON por cada entidad a validar (usuario, dirección, artículo, etc)
+
+
+El nuevo sistema creará por cada fichero JSON una clase en C# y otra en typescript. La clase c# usará el sistema FluentValidator y la TypeScript el sistema fluentvalidation-ts
