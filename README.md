@@ -219,6 +219,16 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 
 This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
 
+## 🙏 Credits
+
+This project builds upon the excellent work of:
+
+- **[FluentValidation](https://github.com/FluentValidation/FluentValidation)** by [Jeremy Skinner](https://github.com/JeremySkinner) - The powerful, strongly-typed validation library for .NET that has become the industry standard for validation in C#/.NET applications.
+
+- **[fluentvalidation-ts](https://github.com/AlexJPotter/fluentvalidation-ts)** by [Alex Muench](https://github.com/AlexJPotter) - A TypeScript port of FluentValidation that brings the same elegant validation API to the TypeScript/JavaScript ecosystem.
+
+Without these foundational libraries, this code generation system would not be possible. We are grateful for their contributions to the developer community.
+
 ## 🆘 Support
 
 - 📖 [Documentation](docs/)
